@@ -19,7 +19,7 @@ export function Sidebar () {
 
             <footer>
                 <a href="https://github.com/oEduardBarbosa">
-                    <PencilLine />
+                    <PencilLine size={20} />
                     Editar seu perfil
                 </a>
             </footer>
