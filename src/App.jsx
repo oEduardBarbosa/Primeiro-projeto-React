@@ -6,6 +6,38 @@ import styles from './App.module.css';
 import  './global.css';
 import { Sidebar } from './componentes/Sidebar';
 
+
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/oEduardBarbosa.png',
+      name: 'Eduard Barbosa',
+      role: 'Developer',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋'},
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+      { type: 'link', content: 'jane.design/doctorcare' },
+    ],
+    publishedAt: new Date('2022-08-15 20:00:00'),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/maykbrito.png',
+      name: 'Mayk Brito',
+      role: 'Educator @Rocketseat',
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋'},
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+      { type: 'link', content: 'jane.design/doctorcare' },
+    ],
+    publishedAt: new Date('2022-08-16 20:00:00'),
+  },
+];
+
 export function App() {
 
   return (
@@ -15,32 +47,15 @@ export function App() {
     <div className={styles.wrapper}>
       <Sidebar  />
       <main>
-          <Post 
-          author="William Shakespeare" 
-          content="Aprende que nunca se deve dizer a uma criança que sonhos são bobagens, poucas coisas são tão humilhantes e seria uma tragédia se ela acreditasse nisso. Aprende que quando está com raiva tem o direito de estar com raiva, mas isso não te dá o direito de ser cruel. “A alegria evita mil males e prolonga a vida. "
-        />
-
-        <Post 
-          author="Machado de Assis" 
-          content="Querida, ao pé do leito derradeiro
-          Em que descansas dessa longa vida,
-          Aqui venho e virei, pobre querida,
-          Trazer-te o coração do companheiro.
-           
-          Pulsa-lhe aquele afeto verdadeiro
-          Que, a despeito de toda a humana lida,
-          Fez a nossa existência apetecida
-          E num recanto pôs o mundo inteiro.
-          
-          Trago-te flores - restos arrancados
-          Da terra que nos viu passar unidos
-          E ora mortos nos deixa e separados.
-          
-          Que eu, se tenho nos olhos malferidos
-          Pensamentos de vida formulados,
-          São pensamentos idos e vividos."
-        />
-        
+          {posts.map(post => {
+            return (
+              <Post 
+                author={post.author}
+                content={post.content}
+                pubçishedAt={post.publishedAt}
+              />
+            )
+          })} 
       </main>
     </div>
    </div>
